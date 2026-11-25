@@ -1,0 +1,57 @@
+<!doctype html>
+<html lang="te">
+<head>
+<meta charset="utf-8"><meta name="viewport" content="width=device-width,initial-scale=1">
+<meta name="theme-color" content="#101827"><title>Dhanvi YouTube SEO Studio AI</title>
+<style>
+:root{--bg:#0b1220;--panel:#121d30;--panel2:#0b1628;--text:#f4f7fb;--muted:#a9b6c9;--line:#2b3a52;--gold:#f4b942;--green:#48c78e}
+*{box-sizing:border-box}body{margin:0;background:linear-gradient(145deg,#0b1220,#111d31 65%,#17243a);color:var(--text);font-family:system-ui,-apple-system,"Noto Sans Telugu",sans-serif;min-height:100vh}
+.wrap{max-width:940px;margin:auto;padding:22px 15px 48px}.hero{text-align:center;padding:20px 5px 25px}.logo{font-size:42px}.hero h1{font-size:clamp(26px,5vw,39px);margin:8px 0}.hero p{color:var(--muted);margin:0}.pill{display:inline-block;margin-top:12px;padding:6px 13px;border:1px solid #42634f;border-radius:99px;color:#9de3bb;font-size:13px}
+.card{background:rgba(18,29,48,.97);border:1px solid var(--line);border-radius:18px;padding:20px;margin:14px 0;box-shadow:0 12px 35px #0003}
+label{display:block;font-weight:700;margin:0 0 8px}textarea,input,select{width:100%;background:#0c1627;border:1px solid #34445e;border-radius:11px;color:var(--text);padding:13px 14px;font:inherit;outline:none}textarea:focus,input:focus,select:focus{border-color:var(--gold)}textarea{min-height:92px;resize:vertical}
+.grid{display:grid;grid-template-columns:1fr 1fr;gap:13px;margin-top:14px}.btn{border:0;border-radius:12px;padding:12px 16px;font:inherit;font-weight:700;cursor:pointer}.primary{background:var(--gold);color:#201807;width:100%;margin-top:16px}.primary:disabled{opacity:.6;cursor:wait}.secondary{background:#263852;color:#fff;padding:8px 12px;font-size:13px}.hint,.note{font-size:13px;color:var(--muted);line-height:1.6}.hint{margin-top:7px}.note{margin-top:13px}.status{display:none;padding:12px 14px;border-radius:10px;background:#1d3048;color:#dce9fb;margin-top:14px}.status.error{background:#48232b;color:#ffdce1}.status.ok{background:#183a30;color:#c9ffe6}
+.outputHead{display:flex;align-items:center;justify-content:space-between;gap:10px;margin-bottom:10px}.outputHead h2{font-size:18px;margin:0}.output{white-space:pre-wrap;line-height:1.75;background:var(--panel2);border:1px solid #2a3a53;border-radius:12px;padding:15px;color:#eaf0f8;min-height:62px;overflow-wrap:anywhere}.section{margin-top:21px}.actions{display:flex;gap:8px;flex-wrap:wrap;margin-top:14px}.hidden{display:none}.footer{text-align:center;color:#8291a8;font-size:12px;margin-top:24px}
+@media(max-width:600px){.grid{grid-template-columns:1fr}.card{padding:16px}.outputHead{align-items:flex-start}}
+</style></head>
+<body><main class="wrap">
+<header class="hero"><div class="logo">🎬</div><h1>Dhanvi YouTube SEO Studio AI</h1><p>మీ వీడియో టైటిల్ ఇవ్వండి… AI మీకోసం SEO కంటెంట్ తయారు చేస్తుంది</p><span class="pill">Gemini AI • Telugu + English SEO</span></header>
+<section class="card">
+<label for="title">వీడియో టైటిల్ *</label><textarea id="title" placeholder="ఉదా: కన్నీళ్లు పెట్టించే అమ్మ ప్రేమ కథ | తెలుగు భావోద్వేగ కథ"></textarea>
+<div class="grid">
+<div><label for="channel">YouTube Channel Name</label><input id="channel" value="Dhanvi Podcast"></div>
+<div><label for="type">వీడియో కేటగిరీ</label><select id="type"><option>టైటిల్‌ను బట్టి AI నిర్ణయించాలి</option><option>తెలుగు కథలు / Emotional Stories</option><option>భక్తి / ఆధ్యాత్మికం</option><option>మోటివేషన్ / జీవిత పాఠాలు</option><option>సమాచారం / ఇతర వీడియో</option></select></div>
+<div><label for="audience">Target Audience</label><select id="audience"><option>తెలుగు ప్రేక్షకులు</option><option>తెలంగాణ & ఆంధ్రప్రదేశ్ ప్రేక్షకులు</option><option>ప్రపంచవ్యాప్తంగా తెలుగు ప్రేక్షకులు</option></select></div>
+<div><label for="tone">Description శైలి</label><select id="tone"><option>ఆకట్టుకునే, సహజమైన</option><option>భావోద్వేగభరితమైన</option><option>భక్తిపూర్వకమైన</option><option>సమాచారాత్మకమైన</option></select></div>
+</div>
+<button class="btn primary" id="generate" onclick="generate()">✨ AI తో SEO కంటెంట్ తయారుచేయండి</button>
+<div id="status" class="status"></div>
+<p class="note">AI మీ టైటిల్ ఆధారంగా కొత్త కంటెంట్ తయారుచేస్తుంది. SEO ఫలితాలు హామీ కావు; ప్రచురించే ముందు కంటెంట్ నిజానిజాలు పరిశీలించండి.</p>
+</section>
+<section class="card hidden" id="results">
+<div class="section"><div class="outputHead"><h2>📝 SEO Description</h2><button class="btn secondary" onclick="copy('description')">కాపీ</button></div><div class="output" id="description"></div></div>
+<div class="section"><div class="outputHead"><h2>🏷️ YouTube Tags</h2><button class="btn secondary" onclick="copy('tags')">కాపీ</button></div><div class="output" id="tags"></div></div>
+<div class="section"><div class="outputHead"><h2>#️⃣ Hashtags</h2><button class="btn secondary" onclick="copy('hashtags')">కాపీ</button></div><div class="output" id="hashtags"></div></div>
+<div class="section"><div class="outputHead"><h2>🔎 Search Keywords</h2><button class="btn secondary" onclick="copy('keywords')">కాపీ</button></div><div class="output" id="keywords"></div></div>
+<div class="section"><div class="outputHead"><h2>💡 Pinned Comment Suggestion</h2><button class="btn secondary" onclick="copy('pinned')">కాపీ</button></div><div class="output" id="pinned"></div></div>
+<div class="actions"><button class="btn secondary" onclick="copyAll()">అన్ని ఫలితాలు కాపీ</button></div>
+</section>
+<div class="footer">Dhanvi Podcast • AI SEO Studio</div>
+</main>
+<script>
+const el=id=>document.getElementById(id);
+function showStatus(msg,kind=''){const s=el('status');s.textContent=msg;s.className='status '+kind;s.style.display='block'}
+async function generate(){
+ const title=el('title').value.trim();if(!title){showStatus('ముందుగా వీడియో టైటిల్ ఇవ్వండి.','error');el('title').focus();return}
+ const btn=el('generate');btn.disabled=true;btn.textContent='⏳ AI ఆలోచిస్తోంది…';showStatus('మీ టైటిల్‌ను Gemini AI విశ్లేషిస్తోంది. కొద్దిసేపు వేచి ఉండండి.');
+ el('results').classList.add('hidden');
+ try{
+  const res=await fetch('/.netlify/functions/generate',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({title,channel:el('channel').value.trim()||'Dhanvi Podcast',type:el('type').value,audience:el('audience').value,tone:el('tone').value})});
+  const data=await res.json();if(!res.ok)throw new Error(data.error||'AI request failed');
+  for(const key of ['description','tags','hashtags','keywords','pinned'])el(key).textContent=data[key]||'';
+  el('results').classList.remove('hidden');showStatus('AI కంటెంట్ సిద్ధమైంది! ప్రతి విభాగాన్ని కాపీ చేసుకోవచ్చు.','ok');el('results').scrollIntoView({behavior:'smooth'});
+ }catch(e){showStatus('సమస్య: '+e.message+' — Netlifyలో GEMINI_API_KEY సరిగ్గా సెట్ చేశారో చూడండి.','error')}
+ finally{btn.disabled=false;btn.textContent='✨ AI తో SEO కంటెంట్ తయారుచేయండి'}
+}
+async function copy(id){const t=el(id).textContent;try{await navigator.clipboard.writeText(t);showStatus('కాపీ అయింది!','ok')}catch(e){const a=document.createElement('textarea');a.value=t;document.body.appendChild(a);a.select();document.execCommand('copy');a.remove();showStatus('కాపీ అయింది!','ok')}}
+async function copyAll(){const keys=['description','tags','hashtags','keywords','pinned'];const all=keys.map(k=>k.toUpperCase()+'\n'+el(k).textContent).join('\n\n');try{await navigator.clipboard.writeText(all);showStatus('అన్ని ఫలితాలు కాపీ అయ్యాయి!','ok')}catch(e){showStatus('కాపీ చేయలేకపోయాం. ఒక్కొక్కటి కాపీ చేయండి.','error')}}
+</script></body></html>
